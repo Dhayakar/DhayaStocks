@@ -3,9 +3,7 @@ using EStocks.Service.IRepository;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -35,10 +33,10 @@ namespace EStocks.Controllers
         }
 
         [HttpGet]
-        [Route("api/v1.0/market/[controller]/{CompanyCode}")]
-        public IQueryable<CompanyEStock> Get(string CompanyCode)
+        [Route("api/v1.0/market/[controller]/{CompanyCode}/{startdate}/{enddate}")]
+        public IQueryable<CompanyEStock> Get(string CompanyCode, DateTime startdate, DateTime enddate)
         {
-            var data = _repository.GetCompanyData(CompanyCode);
+            var data = _repository.GetCompanyData(CompanyCode, startdate, enddate);
             return data;
         }
     }

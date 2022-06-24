@@ -10,6 +10,6 @@ namespace EStocks.Service.IRepository
     {
         public CompanyEStock SaveCompanyEStock(CompanyEStock companyEStock);
 
-        public IQueryable<CompanyEStock> GetCompanyData(string Code);
+        public IQueryable<CompanyEStock> GetCompanyData(string Code,DateTime startdate,DateTime enddate);
     }
 }

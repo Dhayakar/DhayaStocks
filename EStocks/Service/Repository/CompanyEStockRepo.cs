@@ -14,14 +14,15 @@ namespace EStocks.Service.Repository
         {
             _context = context;
         }
-        public IQueryable<CompanyEStock> GetCompanyData(string Code)
+        public IQueryable<CompanyEStock> GetCompanyData(string Code, DateTime startdate, DateTime enddate)
         {
 
             int companyId = GetCompanyCodeById(Code);
             if (companyId == null || companyId == 0)
                 return null;
             else
-                return _context.CompanyEStock.Where(x => x.CompanyId == companyId);
+                return _context.CompanyEStock.Where(x => x.CompanyId == companyId &&
+                            x.StartDate.Date <= startdate.Date && x.EndDate.Date <= enddate.Date);
         }
 
         private int GetCompanyCodeById(string code)

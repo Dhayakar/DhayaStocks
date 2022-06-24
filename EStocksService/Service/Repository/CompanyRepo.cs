@@ -38,5 +38,12 @@ namespace EStocksService.Service.Repository
             _context.SaveChanges();
             return company;
         }
+        public Company GetCompanyData(string code)
+        {
+
+            var company = _context.Company.FirstOrDefault(x => x.CompanyCode == code);
+            return company;
+        }
+        
     }
 }

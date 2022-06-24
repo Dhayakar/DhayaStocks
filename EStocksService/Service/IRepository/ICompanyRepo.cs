@@ -12,5 +12,6 @@ namespace EStocksService.Service.IRepository
         public Company SaveCompany(Company company);
         public Company GetCompanyById(int id);
         public void DeleteCompany(int companyCode);
+        public Company GetCompanyData(string Code);
     }
 }

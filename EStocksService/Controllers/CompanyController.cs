@@ -22,13 +22,11 @@ namespace EStocksService.Controllers
         {
             _repository = repository;
         }
-
         [HttpGet]
-        [Route("api/v1.0/market/[controller]/getall")]
-        public IQueryable<Company> Get()
+        [Route("api/v1.0/market/[controller]/Info/{CompanyCode}")]
+        public Company Get(string CompanyCode)
         {
-            var data = _repository.GetCompanyDetails();
-            //return Ok(data);
+            var data = _repository.GetCompanyData(CompanyCode);
             return data;
         }
 
@@ -41,8 +39,19 @@ namespace EStocksService.Controllers
                 HttpContext.Request.Path + "/" + company.CompanyId, data);
         }
 
+
+        [HttpGet]
+        [Route("api/v1.0/market/[controller]/getall")]
+        public IQueryable<Company> Get()
+        {
+            var data = _repository.GetCompanyDetails();
+            //return Ok(data);
+            return data;
+        }
+
+     
         [HttpDelete]
-        [Route("api/v1.0/market/[controller]/{id}")]
+        [Route("api/v1.0/market/[controller]/Delete/{id}")]
         public IActionResult Delete(int id)
         {
             _repository.DeleteCompany(id);

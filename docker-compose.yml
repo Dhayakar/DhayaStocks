@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  estocksservice:
+    image: ${DOCKER_REGISTRY-}estocksservice
+    build:
+      context: .
+      dockerfile: EStocksService/Dockerfile

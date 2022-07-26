@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace EStocksService.Controllers
 {
     [ApiController]
-    [EnableCors("AllowOrigin")]
+  //  [EnableCors("AllowOrigin")]
     //[Route("api/[controller]")]
     public class CompanyController : ControllerBase
     {

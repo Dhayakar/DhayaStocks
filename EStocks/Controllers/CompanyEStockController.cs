@@ -10,7 +10,7 @@ using System.Linq;
 namespace EStocks.Controllers
 {
     [ApiController]
-    [EnableCors("AllowOrigin")]
+   // [EnableCors("AllowOrigin")]
     public class CompanyEStockController : ControllerBase
     {
         private readonly ICompanyEStockRepo _repository;
@@ -34,7 +34,7 @@ namespace EStocks.Controllers
 
         [HttpGet]
         [Route("api/v1.0/market/[controller]/{CompanyCode}/{startdate}/{enddate}")]
-        public IQueryable<CompanyEStock> Get(string CompanyCode, DateTime startdate, DateTime enddate)
+        public IQueryable<CompanyEStock> Get(string CompanyCode, DateTime  startdate, DateTime enddate)
         {
             var data = _repository.GetCompanyData(CompanyCode, startdate, enddate);
             return data;

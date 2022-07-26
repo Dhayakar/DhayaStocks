@@ -3,12 +3,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EStocks.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             
-
             migrationBuilder.CreateTable(
                 name: "CompanyEStock",
                 columns: table => new
@@ -28,7 +27,8 @@ namespace EStocks.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-           
+          
+
             migrationBuilder.DropTable(
                 name: "CompanyEStock");
         }
